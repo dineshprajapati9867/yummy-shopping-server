@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://localhost:27017/moviesDB", {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -59,7 +59,9 @@ app.post("/login", async function (req, res) {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "User not found. Please register first." });
+      return res
+        .status(400)
+        .json({ message: "User not found. Please register first." });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
