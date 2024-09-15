@@ -23,9 +23,11 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Failed to connect to MongoDB", error));
-app.get("/",function(req,res){
+
+app.get("/",(req,res)=>{
   res.json("hello")
 })
+
 // Register Route
 app.post("/register", async (req, res) => {
   try {
