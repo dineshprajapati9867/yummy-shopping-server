@@ -14,7 +14,7 @@ const User = require("./model/registerModel");
 app.use(express.json());
 
 app.use(cors({
-  origin: ['https://trailer-time.vercel.app/'], 
+  origin: ['https://trailer-time.vercel.app'], 
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   credentials: true 
 }));
