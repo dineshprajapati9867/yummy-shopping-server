@@ -2,9 +2,11 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "mongoose": "^8.6.0",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2",
+    "nodemailer": "^6.9.15",
     "nodemon": "^3.1.4"
   },
   "name": "server",
@@ -12,7 +14,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
