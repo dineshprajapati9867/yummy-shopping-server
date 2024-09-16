@@ -17,7 +17,7 @@ app.use(cors({ origin: 'https://trailer-time.vercel.app' }))
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(MONGO_URL=mongodb+srv://dineshprajapati9867:movix123@cluster0.j09le.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0)
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Failed to connect to MongoDB", error));
 
