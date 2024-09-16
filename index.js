@@ -14,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use(cors({ origin: 'https://trailer-time.vercel.app' }))
+app.options('*', cors()); 
 
 // Connect to MongoDB
 mongoose
