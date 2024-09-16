@@ -17,7 +17,7 @@ app.use(cors({ origin: 'https://trailer-time.vercel.app' }))
 
 // Connect to MongoDB
 mongoose
-  .connect(MONGO_URL=mongodb+srv://dineshprajapati9867:movix123@cluster0.j09le.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0)
+  .connect(mongodb+srv://dineshprajapati9867:movix123@cluster0.j09le.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0)
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Failed to connect to MongoDB", error));
 
@@ -98,13 +98,13 @@ app.post("/sendotp", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: dineshprajapati9867@gmail.com,
+        pass: whyt ppcp owwv zyyo,
       },
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: dineshprajapati9867@gmail.com,
       to: email,
       subject: "Password Reset OTP",
       text: `Your OTP is ${otp}. It will expire in 1 hour.`,
@@ -172,6 +172,6 @@ app.post("/reset-password", async (req, res) => {
 });
 
 // Start the server
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+app.listen(5000, () => {
+  console.log(`Server running on port 5000`);
 });
