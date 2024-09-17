@@ -9,33 +9,30 @@ require("dotenv").config();
 
 const User = require("./model/registerModel");
 
+// CORS configuration
+const corsOptions = {
+  origin: 'https://trailer-time.vercel.app', // Allow only your frontend origin
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Allow all necessary HTTP methods
+  credentials: true, // Allow credentials if needed (cookies, etc.)
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions)); // Apply CORS with the specified options
 app.use(express.json());
 
-app.use(cors({
-  origin: 'https://trailer-time.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, 
-  allowedHeaders: ['Content-Type', 'Authorization'] 
-}));
-app.options('*', cors()); 
+// Handle preflight requests
+app.options('*', cors(corsOptions));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://trailer-time.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
 // Connect to MongoDB
 mongoose
   .connect('mongodb+srv://dineshprajapati9867:movix123@cluster0.j09le.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Failed to connect to MongoDB", error));
 
-app.get("/",(req,res)=>{
-  res.json("hello")
-})
+// Test Route
+app.get("/", (req, res) => {
+  res.json("Hello from the server");
+});
 
 // Register Route
 app.post("/register", async (req, res) => {
@@ -184,6 +181,6 @@ app.post("/reset-password", async (req, res) => {
 });
 
 // Start the server
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`Server running on port ${process.env.PORT || 3000}`);
 });
