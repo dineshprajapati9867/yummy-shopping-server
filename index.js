@@ -18,7 +18,7 @@ app.options('*', cors());
 
 // Connect to MongoDB
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect('mongodb+srv://dineshprajapati9867:movix123@cluster0.j09le.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log("Connected to MongoDB"))
   .catch((error) => console.error("Failed to connect to MongoDB", error));
 
@@ -99,13 +99,13 @@ app.post("/sendotp", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user:  process.env.EMAIL_USER,
-        pass:  process.env.EMAIL_PASS,
+        user: 'dineshprajapati9867@gmail.com',
+        pass: 'whyt ppcp owwv zyyo',
       },
     });
 
     const mailOptions = {
-      from:  process.env.EMAIL_USER,
+      from: 'dineshprajapati9867@gmail.com',
       to: email,
       subject: "Password Reset OTP",
       text: `Your OTP is ${otp}. It will expire in 1 hour.`,
